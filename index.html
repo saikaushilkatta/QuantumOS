@@ -44,6 +44,9 @@
         <div id="taskbar">
             <button class="app-icon" id="icon-terminal">Terminal</button>
             <button class="app-icon" id="icon-sysinfo">System Info</button>
+            <button class="app-icon" id="icon-terminal">Terminal</button>
+            <button class="app-icon" id="icon-sysinfo">System Info</button>
+            <div id="os-clock">00:00:00</div>
         </div>
 
     </div>
@@ -136,6 +139,17 @@
         iconSysInfo.addEventListener('click', () => {
             window2.style.display = 'block';
         });
+
+        // Live System Clock
+        function updateClock() {
+            const clockElement = document.getElementById('os-clock');
+            const now = new Date();
+            // toLocaleTimeString() automatically formats it nicely (e.g., 10:06:40 PM)
+            clockElement.textContent = now.toLocaleTimeString(); 
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock(); // Run it immediately so it doesn't show 00:00:00 for the first second
     </script>
 </body>
 </html>
