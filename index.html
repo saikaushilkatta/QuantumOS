@@ -9,28 +9,116 @@
 
 <body>
     <div id="welcome-screen">
-        <h1>QuantumOs</h1>
+        <h1>QuantumOS</h1>
         <p>System Status: Ready...</p>
         <button id="start-btn">Initialize System</button>
     </div>
 
     <div id="desktop" style="display: none;">
+        
+        <!-- Draggable Window 1: Terminal -->
+        <div class="window" id="window1">
+            <div class="window-header" id="window1-header">
+                <span>Terminal</span>
+                <button class="close-btn" type="button" aria-label="Close window">X</button>
+            </div>
+            <div class="window-content">
+                <p>Connection established.</p>
+                <p>Awaiting input...</p>
+            </div>
         </div>
+
+        <!-- Draggable Window 2: System Info -->
+        <div class="window" id="window2">
+            <div class="window-header" id="window2-header">
+                <span>System Info</span>
+                <button class="close-btn" type="button" aria-label="Close window">X</button>
+            </div>
+            <div class="window-content">
+                <p>OS Version: Quantum v1.0</p>
+                <p>Memory: Optimal</p>
+                <p>Network: Secure</p>
+            </div>
+        </div>
+
+    </div>
+
     <script>
         const startBtn = document.getElementById('start-btn');
         const welcomeScreen = document.getElementById('welcome-screen');
         const desktop = document.getElementById('desktop');
+        
+        // Grab both windows
+        const window1 = document.getElementById('window1');
+        const window2 = document.getElementById('window2');
+        
+        // Grab ALL close buttons instead of just one
+        const closeBtns = document.querySelectorAll('.close-btn');
 
-        startBtn.addEventListener('click', () => {
-            // Hide the boot screen
+        function showDesktop() {
             welcomeScreen.style.display = 'none';
-            // Show the desktop
             desktop.style.display = 'block';
+            
+            // Position Window 1
+            window1.style.display = 'block';
+            window1.style.left = '120px';
+            window1.style.top = '100px';
+
+            // Position Window 2 slightly offset from Window 1
+            window2.style.display = 'block';
+            window2.style.left = '520px';
+            window2.style.top = '150px';
+        }
+
+        startBtn.addEventListener('click', showDesktop);
+
+        // Loop through every close button and make it close its specific window
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // e.target.closest('.window') finds the specific window this button belongs to
+                e.target.closest('.window').style.display = 'none';
+            });
         });
+
+        // Make both windows draggable
+        dragElement(window1);
+        dragElement(window2);
+
+        function dragElement(elmnt) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            const header = document.getElementById(elmnt.id + '-header');
+
+            if (!header) return;
+
+            header.onmousedown = dragMouseDown;
+
+            function dragMouseDown(e) {
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                const newTop = elmnt.offsetTop - pos2;
+                const newLeft = elmnt.offsetLeft - pos1;
+
+                elmnt.style.top = `${newTop}px`;
+                elmnt.style.left = `${newLeft}px`;
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
     </script>
 </body>
 </html>
-
-
-
-
