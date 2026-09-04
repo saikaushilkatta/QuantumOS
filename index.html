@@ -19,3 +19,16 @@
 </html>
 
 
+<script>
+    const startBtn = document.getElementById('start-btn');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const desktop = document.getElementById('desktop');
+
+    startBtn.addEventListener('click', () => {
+        // Hide the boot screen
+        welcomeScreen.style.display = 'none';
+        // Show the desktop
+        desktop.style.display = 'block';
+    });
+</script>
+
