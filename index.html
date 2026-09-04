@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="e">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuantumOS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="welcome-screen">
         <h1>QuantumOs</h1>
@@ -13,22 +15,22 @@
     </div>
 
     <div id="desktop" style="display: none;">
-        </div>"
+        </div>
+    <script>
+        const startBtn = document.getElementById('start-btn');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const desktop = document.getElementById('desktop');
 
+        startBtn.addEventListener('click', () => {
+            // Hide the boot screen
+            welcomeScreen.style.display = 'none';
+            // Show the desktop
+            desktop.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
 
 
-<script>
-    const startBtn = document.getElementById('start-btn');
-    const welcomeScreen = document.getElementById('welcome-screen');
-    const desktop = document.getElementById('desktop');
 
-    startBtn.addEventListener('click', () => {
-        // Hide the boot screen
-        welcomeScreen.style.display = 'none';
-        // Show the desktop
-        desktop.style.display = 'block';
-    });
-</script>
 
