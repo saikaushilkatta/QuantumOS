@@ -1,6 +1,6 @@
 body {
     background-color: #050510; /* Fallback color */
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Carina_Nebula_by_Webb_NIRCam.jpg/1920px-Carina_Nebula_by_Webb_NIRCam.jpg') !important;
+    background-image: url('space.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
