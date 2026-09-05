@@ -1,8 +1,12 @@
 body {
+    background-color: #050510; /* Fallback color */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Carina_Nebula_by_Webb_NIRCam.jpg/1920px-Carina_Nebula_by_Webb_NIRCam.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    height: 100vh;
     margin: 0;
     overflow: hidden;
-    background-color: #0a0a12;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 #welcome-screen {
@@ -122,13 +126,4 @@ body {
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
-}
-
-#desktop {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Carina_Nebula_by_Webb_NIRCam.jpg/1920px-Carina_Nebula_by_Webb_NIRCam.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
 }
