@@ -38,6 +38,8 @@
                 <p>OS Version: Quantum v1.0</p>
                 <p>Memory: Optimal</p>
                 <p>Network: Secure</p>
+                <p>CPU Temp: <span style="color: #ff3333; font-weight: bold;">85°C (WARNING)</span></p>
+                <p>Uptime: <span id="uptime">00:00:00</span></p>
             </div>
         </div>
 
@@ -148,6 +150,22 @@
         
         setInterval(updateClock, 1000);
         updateClock(); // Run it immediately so it doesn't show 00:00:00 for the first second
+        
+        // System Uptime Tracker
+        let uptimeSeconds = 0;
+        function updateUptime() {
+            uptimeSeconds++;
+            const hrs = String(Math.floor(uptimeSeconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((uptimeSeconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(uptimeSeconds % 60).padStart(2, '0');
+            
+            const uptimeElement = document.getElementById('uptime');
+            if (uptimeElement) {
+                uptimeElement.textContent = `${hrs}:${mins}:${secs}`;
+            }
+        }
+        
+        setInterval(updateUptime, 1000);
     </script>
 </body>
 </html>
