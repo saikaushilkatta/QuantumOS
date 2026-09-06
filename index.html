@@ -43,9 +43,41 @@
             </div>
         </div>
 
+        <div class="window" id="calc-window">
+            <div class="title-bar" id="calc-windowheader">
+                <span>Calculator</span>
+                <button class="close-btn" onclick="closeWindow('calc-window')">X</button>
+            </div>
+            <div class="content calc-container">
+                <input type="text" id="calc-display" disabled>
+                <div class="calc-buttons">
+                    <button onclick="calcType('7')">7</button>
+                    <button onclick="calcType('8')">8</button>
+                    <button onclick="calcType('9')">9</button>
+                    <button onclick="calcType('/')">/</button>
+            
+                    <button onclick="calcType('4')">4</button>
+                    <button onclick="calcType('5')">5</button>
+                    <button onclick="calcType('6')">6</button>
+                    <button onclick="calcType('*')">*</button>
+            
+                    <button onclick="calcType('1')">1</button>
+                    <button onclick="calcType('2')">2</button>
+                    <button onclick="calcType('3')">3</button>
+                    <button onclick="calcType('-')">-</button>
+            
+                    <button onclick="calcClear()">C</button>
+                    <button onclick="calcType('0')">0</button>
+                    <button onclick="calcEval()">=</button>
+                    <button onclick="calcType('+')">+</button>
+                </div>
+            </div>
+        </div>
+
         <div id="taskbar">
             <button class="app-icon" id="icon-terminal">Terminal</button>
             <button class="app-icon" id="icon-sysinfo">System Info</button>
+            <button class="taskbar-icon" onclick="openWindow('calc-window')">🖩 Calculator</button>
             <div id="os-clock">00:00:00</div>
         </div>
 
@@ -166,6 +198,29 @@
         }
         
         setInterval(updateUptime, 1000);
+
+        
+        dragElement(document.getElementById("calc-window"));
+
+
+        const display = document.getElementById('calc-display');
+
+        function calcType(val) {
+            display.value += val;
+        }
+
+        function calcClear() {
+            display.value = '';
+        }
+
+        function calcEval() {
+            try {
+        
+                display.value = eval(display.value); 
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
     </script>
 </body>
 </html>

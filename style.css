@@ -127,3 +127,42 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
 }
+
+.calc-container {
+    padding: 10px;
+    background-color: #050510;
+}
+
+#calc-display {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #000;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calc-buttons button {
+    background-color: #111;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: 0.2s;
+}
+
+.calc-buttons button:hover {
+    background-color: #00ffff;
+    color: #000;
+}
