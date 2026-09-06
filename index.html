@@ -44,11 +44,11 @@
         </div>
 
         <div class="window" id="calc-window">
-            <div class="title-bar" id="calc-windowheader">
+            <div class="window-header" id="calc-window-header">
                 <span>Calculator</span>
-                <button class="close-btn" onclick="closeWindow('calc-window')">X</button>
+                <button class="close-btn" type="button" aria-label="Close window">X</button>
             </div>
-            <div class="content calc-container">
+            <div class="window-content calc-container">
                 <input type="text" id="calc-display" disabled>
                 <div class="calc-buttons">
                     <button onclick="calcType('7')">7</button>
