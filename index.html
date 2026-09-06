@@ -77,7 +77,7 @@
         <div id="taskbar">
             <button class="app-icon" id="icon-terminal">Terminal</button>
             <button class="app-icon" id="icon-sysinfo">System Info</button>
-            <button class="taskbar-icon" onclick="openWindow('calc-window')">🖩 Calculator</button>
+            <button class="app-icon" id="icon-calc">Calculator</button>
             <div id="os-clock">00:00:00</div>
         </div>
 
@@ -201,6 +201,9 @@
 
         
         dragElement(document.getElementById("calc-window"));
+        document.getElementById('icon-calc').addEventListener('click', function() {
+            document.getElementById('calc-window').style.display = 'block';
+        });
 
 
         const display = document.getElementById('calc-display');
